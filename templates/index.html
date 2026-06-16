@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brain Tumor Detection System</title>
+    <link rel="stylesheet" href="static/styles.css">
+</head>
+<body>
+    <div class="page">
+        <div class="card">
+            <h1>Brain Tumor Detection</h1>
+            <p class="subtitle">Upload an MRI image and click Detect to get a prediction.</p>
+            
+            <form method="POST" enctype="multipart/form-data" class="upload-form">
+                <div class="field">
+                    <label for="file">Choose MRI image</label>
+                    <input type="file" id="file" name="image" accept="image/*" required>
+                </div>
+                <button type="submit">Upload and Detect</button>
+            </form>
+            <p class="note">Supported formats: JPG, PNG, BMP.</p>
+            
+            {% if error %}
+            <div class="error">{{ error }}</div>
+            {% endif %}
+            
+            {% if result %}
+            <div class="result">
+                <h2>Prediction Result</h2>
+                <p><strong>Class:</strong> {{ result }}</p>
+                <p><strong>Confidence:</strong> {{ confidence }}%</p>
+                <img src="/uploads/{{ file_path }}" alt="Uploaded MRI">
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>
