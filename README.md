@@ -6,7 +6,7 @@ A Flask-based web application for classifying brain MRI images into one of four 
 - **notumor**
 - **pituitary**
 
-The app uses a pre-trained Keras model (`model.h5`) to predict tumor type from uploaded MRI images.
+The app uses a pre-trained CNN model (`VGG16`) to predict tumor type from uploaded MRI images.
 
 ## Project Structure
 
